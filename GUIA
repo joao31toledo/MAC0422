@@ -1,0 +1,41 @@
+
+
+    qual o tamanho da pista? d
+    qual a quantidade de ciclistas? k
+
+    cria a pista (matriz 10 x d)
+    cria um vetor de objetos "Ciclista"
+
+    LARGADA:
+    # sorteia os primeiro e coloca na ultima coluna e vai sorteando, voltando nas colunas;
+    # assim temos todos os ciclistas já posicionados
+        enquanto tem ciclistas que não largaram ainda:
+            sorteia 5 ciclistas
+            coloca o 1 na posição: [0][-1]
+            coloca o 2 na posição: [1][-1]
+            coloca o 3 na posição: [2][-1]
+            coloca o 4 na posição: [3][-1]
+            coloca o 5 na posição: [4][-1]
+            decrementa o contador da coluna (agora vai pra -2)
+            sorteia mais 5 ciclistas
+            coloca o 6 na posiçao [0][-2]
+            coloca o 7 -> [1][-2]
+            coloca o 8 -> [2][-2]
+            coloca o 9 -> [3][-2]
+            coloca o 10 -> [4][-2]
+    
+    #ACABOU A DEFINIÇÃO DO GRID DE LARGADA, COMEÇA A CORRIDA DE FATO:
+        enquanto tem 2 ou mais ciclistas na pista:
+            MOVIMENTA_CICLISTAS
+
+
+
+
+            se algum deles terminou a volta:
+                se o número da volta % 2 == 0:
+                    se o ciclista é o primeiro:
+                        remove ciclista
+                se o número da volta % 6 == 0:
+                    se o ciclista quebrou:
+                        remove ciclista
+            

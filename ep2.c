@@ -2,34 +2,30 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <pthread.h>
+#include "ep2.h"
 
-void* routine(int id)
+int main(int argc, char *argv[])
 {
-    printf("thread %d running\n", id);
-    sleep(3);
-    printf("finnished thread %d\n", id);
-}
 
-int main(int argc, char* argv)
-{
-    int k = 10;
-    pthread_t* ciclistas;
-    ciclistas = (pthread_t*)malloc(k * sizeof(pthread_t));
+    int i, j;
 
-    for(int i = 0; i < k; i++)
+    int d, k;
+    d = atoi(argv[1]);
+    k = atoi(argv[2]);
+    if(argc > 3)
     {
-        pthread_create(&ciclistas[i], NULL, &routine, i);
+        printf("está no modo debug;\n");
     }
 
-    for(int j = 0; j < k; j++)
-    {
-        pthread_join(ciclistas[j], NULL);
-    }
-    // pthread_t t1, t2;
-    // pthread_create(&t1, NULL, &routine, 1);
-    // pthread_create(&t2, NULL, &routine, 2);
-    // pthread_join(t1, NULL);
-    // pthread_join(t2, NULL);
+    printf("tamanho da pista: %d\n", d);
+    printf("quantidade de ciclistas: %d\n", k);
 
+    struct Ciclista* ciclistas;
+    ciclistas = malloc(k * sizeof(struct Ciclista));
+    ciclistas = criaCiclistas(k, ciclistas);
+
+    int **pista;
+    pista = criaPista(pista, d);
+    
     return 0;
 }
